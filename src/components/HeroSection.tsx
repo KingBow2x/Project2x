@@ -73,30 +73,6 @@ const HeroSection = ({
                 {ctaText}
               </Button>
             </div>
-            <div className="p-4 md:p-10 rounded-lg relative opacity-100 mt-auto">
-              <Dock
-                iconSize={40}
-                iconMagnification={80}
-                iconDistance={120}
-                className="scale-75 md:scale-100"
-              >
-                {[
-                  { icon: Home, label: "Home" },
-                  { icon: User, label: "Profile" },
-                  { icon: Mail, label: "Messages" },
-                  { icon: Bell, label: "Notifications" },
-                  { icon: Settings, label: "Settings" },
-                ].map((item, index) => (
-                  <DockIcon
-                    key={item.label}
-                    className="hover:bg-white/10 transition-colors"
-                    aria-label={item.label}
-                  >
-                    <item.icon className="h-6 w-6 md:h-8 md:w-8 text-white" />
-                  </DockIcon>
-                ))}
-              </Dock>
-            </div>
           </div>
 
           {/* Right content */}
