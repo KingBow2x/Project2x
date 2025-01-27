@@ -3,6 +3,7 @@ import { ButtonWithRipple as Button } from "./ui/button-with-ripple";
 import { motion } from "framer-motion";
 import { SplineScene } from "./ui/splite";
 import { Card } from "./ui/card";
+import { Typewriter } from "./ui/typewriter";
 import { Dock } from "./ui/dock";
 import { DockIcon } from "./ui/dock";
 import { Home, User, Mail, Bell, Settings, ArrowDown } from "lucide-react";
@@ -25,7 +26,7 @@ const HeroSection = ({
 }: HeroSectionProps) => {
   return (
     <section
-      className="relative min-h-[650px] h-[85vh] max-h-[850px] w-full overflow-hidden"
+      className="relative min-h-[650px] h-[85vh] max-h-[850px] w-full overflow-hidden bg-black"
       aria-labelledby="hero-title"
     >
       <Card className="w-full h-full bg-black/[0.96] overflow-hidden rounded-none">
@@ -42,36 +43,20 @@ const HeroSection = ({
                 id="hero-title"
                 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-[1.3] max-w-[800px] pb-4"
               >
-                <span
-                  className="block text-white animate-glow-pulse"
-                  role="text"
-                >
-                  Start Optimising Your
-                </span>
-                <span
-                  className="block text-gray-200 animate-glow-pulse [animation-delay:1s]"
-                  role="text"
-                >
-                  Business With
-                </span>
-                <span
-                  className="block text-gray-300 animate-glow-pulse [animation-delay:2s]"
-                  role="text"
-                >
-                  AI Today
-                </span>
+                <Card className="bg-zinc-900/90 border border-white/10 backdrop-blur-sm p-6 max-w-[600px]">
+                  <Typewriter
+                    words={[
+                      "Hello there! 👋",
+                      "Please find Lewis's CV",
+                      "and recent projects below",
+                      "for your perusal :)",
+                    ]}
+                    speed={30}
+                    delay={2000}
+                    className="flex flex-col gap-2"
+                  />
+                </Card>
               </h1>
-              <p className="text-lg md:text-xl text-gray-400 max-w-[600px] mt-6">
-                {subtitle}
-              </p>
-              <Button
-                onClick={onCtaClick}
-                size="lg"
-                className="mt-8 text-lg px-8 py-6 relative overflow-hidden text-white bg-black hover:bg-white hover:text-black border border-white/20 transition-all duration-300"
-                aria-label="Get started with our services"
-              >
-                {ctaText}
-              </Button>
             </div>
           </div>
 
