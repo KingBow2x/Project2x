@@ -21,7 +21,7 @@ const HeroSection = ({
   onCtaClick = () => console.log("CTA clicked"),
 }: HeroSectionProps) => {
   return (
-    <section className="relative h-[800px] w-full overflow-hidden">
+    <section className="relative h-[850px] w-full overflow-hidden">
       <Card className="w-full h-full bg-black/[0.96] overflow-hidden">
         <Spotlight
           className="-top-40 left-0 md:left-60 md:-top-20"
@@ -31,12 +31,11 @@ const HeroSection = ({
         <div className="flex h-full">
           {/* Left content */}
           <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
-            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-              The future is HERE
-            </h1>
-            <p className="mt-4 text-neutral-300 max-w-lg">
-              Learn how to optimise your business with AI
-            </p>
+            <div className="pl-12 -mt-48">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-white via-blue-200 to-blue-500 tracking-tight leading-[1.3] max-w-[700px] pb-4">
+                Start Optimising Your Business With AI Today
+              </h1>
+            </div>
           </div>
 
           {/* Right content */}
