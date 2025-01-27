@@ -41,7 +41,7 @@ const ContactSection = ({
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <Card className="bg-black/80 text-white border-gray-800">
+          <Card className="bg-black/80 text-white border-0">
             <CardHeader className="text-center">
               <CardTitle className="text-3xl font-bold mb-2">{title}</CardTitle>
               <p className="text-gray-600">{subtitle}</p>

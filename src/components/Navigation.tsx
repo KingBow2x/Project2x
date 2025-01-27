@@ -34,6 +34,20 @@ const Navigation = ({
     }
   };
 
+  const handleButtonClick = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    href: string,
+  ) => {
+    const button = e.currentTarget;
+    const ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+
+    button.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+
+    scrollToSection(href);
+  };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -42,11 +56,6 @@ const Navigation = ({
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <img className="h-8 w-8" src={logo} alt="Logo" />
-          </div>
-
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
@@ -54,8 +63,8 @@ const Navigation = ({
                 <Button
                   key={link.href}
                   variant="ghost"
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                  onClick={(e) => handleButtonClick(e, link.href)}
+                  className="relative overflow-hidden text-white bg-black hover:bg-white hover:text-black border border-white/20 transition-all duration-300"
                 >
                   {link.label}
                 </Button>
@@ -70,6 +79,7 @@ const Navigation = ({
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
+              className="text-white"
             >
               {isOpen ? (
                 <X className="h-6 w-6" />
@@ -93,8 +103,8 @@ const Navigation = ({
                 <Button
                   key={link.href}
                   variant="ghost"
-                  onClick={() => scrollToSection(link.href)}
-                  className="w-full text-left justify-start text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                  onClick={(e) => handleButtonClick(e, link.href)}
+                  className="w-full text-left justify-start relative overflow-hidden text-white bg-black hover:bg-white hover:text-black border border-white/20 transition-all duration-300"
                 >
                   {link.label}
                 </Button>
