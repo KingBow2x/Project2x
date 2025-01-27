@@ -51,7 +51,7 @@ const HeroSection = ({
                 </span>
               </h1>
             </div>
-            <div className="bg-black/[0.96] p-10 rounded-lg static">
+            <div className="p-10 rounded-lg static opacity-100">
                 <Dock iconSize={50} iconMagnification={80} iconDistance={160}>
                   <DockIcon className="bg-white/10 hover:bg-white/20">
                     <Home className="h-8 w-8 text-white" />
