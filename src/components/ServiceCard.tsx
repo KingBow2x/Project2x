@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { Button } from "./ui/button";
+import { ButtonWithRipple as Button } from "./ui/button-with-ripple";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -51,7 +51,7 @@ const ServiceCard = ({
           <Button
             onClick={onCtaClick}
             variant="ghost"
-            className="w-full group hover:bg-primary/5"
+            className="w-full relative overflow-hidden text-black bg-white hover:bg-black hover:text-white border border-black/20 transition-all duration-300"
           >
             {ctaText}
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

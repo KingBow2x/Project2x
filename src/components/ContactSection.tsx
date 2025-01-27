@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
-import { Button } from "./ui/button";
+import { ButtonWithRipple as Button } from "./ui/button-with-ripple";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
@@ -104,7 +104,11 @@ const ContactSection = ({
                   )}
                 </div>
 
-                <Button type="submit" className="w-full" size="lg">
+                <Button
+                  type="submit"
+                  className="w-full relative overflow-hidden text-white bg-black hover:bg-white hover:text-black border border-white/20 transition-all duration-300"
+                  size="lg"
+                >
                   Send Message
                 </Button>
               </form>

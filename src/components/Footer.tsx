@@ -1,6 +1,6 @@
 import React from "react";
 import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import { ButtonWithRipple as Button } from "./ui/button-with-ripple";
 import { Facebook, Twitter, Instagram, Linkedin, Send } from "lucide-react";
 
 interface FooterProps {
@@ -130,7 +130,11 @@ const Footer = ({
                   className="flex-1"
                   required
                 />
-                <Button type="submit" size="icon">
+                <Button
+                  type="submit"
+                  size="icon"
+                  className="relative overflow-hidden text-white bg-black hover:bg-white hover:text-black border border-white/20 transition-all duration-300"
+                >
                   <Send className="h-4 w-4" />
                 </Button>
               </div>

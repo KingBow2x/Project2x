@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
-import { Button } from "./ui/button";
+import { ButtonWithRipple as Button } from "./ui/button-with-ripple";
 import { Menu, X } from "lucide-react";
 
 interface NavigationProps {

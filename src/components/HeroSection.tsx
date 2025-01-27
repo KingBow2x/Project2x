@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./ui/button";
+import { ButtonWithRipple as Button } from "./ui/button-with-ripple";
 import { motion } from "framer-motion";
 import { SplineScene } from "./ui/splite";
 import { Card } from "./ui/card";
@@ -67,7 +67,7 @@ const HeroSection = ({
               <Button
                 onClick={onCtaClick}
                 size="lg"
-                className="mt-8 text-lg px-8 py-6"
+                className="mt-8 text-lg px-8 py-6 relative overflow-hidden text-white bg-black hover:bg-white hover:text-black border border-white/20 transition-all duration-300"
                 aria-label="Get started with our services"
               >
                 {ctaText}
