@@ -31,8 +31,10 @@ const ContactSection = ({
   } = useForm<ContactFormData>();
 
   return (
-    <section className="w-full py-16 bg-black/[0.96]">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <section className="w-full py-16 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/[0.96] to-black/[0.96]"></div>
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926')] opacity-[0.02] mix-blend-overlay"></div>
+      <div className="container mx-auto px-4 max-w-4xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
