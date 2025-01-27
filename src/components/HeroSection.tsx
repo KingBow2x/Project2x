@@ -22,7 +22,7 @@ const HeroSection = ({
 }: HeroSectionProps) => {
   return (
     <section className="relative h-[850px] w-full overflow-hidden">
-      <Card className="w-full h-full bg-black/[0.96] overflow-hidden">
+      <Card className="w-full h-full bg-black/[0.96] overflow-hidden rounded-none">
         <Spotlight
           className="-top-40 left-0 md:left-60 md:-top-20"
           fill="white"
@@ -30,10 +30,18 @@ const HeroSection = ({
 
         <div className="flex h-full">
           {/* Left content */}
-          <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
-            <div className="pl-12 pt-12">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-white via-gray-200 to-gray-500 tracking-tight leading-[1.3] max-w-[700px] pb-4">
-                Start Optimising Your Business With AI Today
+          <div className="flex-1 p-8 relative z-10 flex flex-col justify-start">
+            <div className="pl-16 pt-24">
+              <h1 className="text-[64px] font-bold leading-[1.1] max-w-[800px]">
+                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+                  Start Optimising Your
+                </span>
+                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-gray-400">
+                  Business With
+                </span>
+                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-gray-500">
+                  AI Today
+                </span>
               </h1>
             </div>
           </div>
