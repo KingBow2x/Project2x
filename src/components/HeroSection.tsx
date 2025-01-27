@@ -31,8 +31,8 @@ const HeroSection = ({
         <div className="flex h-full">
           {/* Left content */}
           <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
-            <div className="pl-12 -mt-48">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-white via-blue-200 to-blue-500 tracking-tight leading-[1.3] max-w-[700px] pb-4">
+            <div className="pl-12 pt-12">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-white via-gray-200 to-gray-500 tracking-tight leading-[1.3] max-w-[700px] pb-4">
                 Start Optimising Your Business With AI Today
               </h1>
             </div>

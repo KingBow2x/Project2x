@@ -31,7 +31,7 @@ const ContactSection = ({
   } = useForm<ContactFormData>();
 
   return (
-    <section className="w-full py-16 bg-gray-50">
+    <section className="w-full py-16 bg-black/[0.96]">
       <div className="container mx-auto px-4 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ const ContactSection = ({
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <Card className="bg-white">
+          <Card className="bg-black/80 text-white border-gray-800">
             <CardHeader className="text-center">
               <CardTitle className="text-3xl font-bold mb-2">{title}</CardTitle>
               <p className="text-gray-600">{subtitle}</p>

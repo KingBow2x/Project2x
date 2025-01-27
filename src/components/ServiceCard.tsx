@@ -31,7 +31,7 @@ const ServiceCard = ({
       transition={{ duration: 0.2 }}
       className="h-full"
     >
-      <Card className="h-full bg-white overflow-hidden flex flex-col">
+      <Card className="h-full bg-black/80 text-white overflow-hidden flex flex-col border-gray-800">
         <div className="relative h-48 overflow-hidden">
           <img
             src={imageUrl}
