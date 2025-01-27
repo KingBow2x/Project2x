@@ -32,7 +32,7 @@ const HeroSection = ({
           {/* Left content */}
           <div className="flex-1 p-8 relative z-10 flex flex-col justify-start">
             <div className="pl-16 pt-32">
-              <h1 className="text-[64px] font-bold leading-[1.2] max-w-[800px]">>
+              <h1 className="text-[64px] font-bold leading-[1.3] max-w-[800px] pb-4">>
                 <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
                   Start Optimising Your
                 </span>
