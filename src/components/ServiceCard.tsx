@@ -27,31 +27,32 @@ const ServiceCard = ({
 }: ServiceCardProps) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.02, y: -5 }}
       transition={{ duration: 0.2 }}
       className="h-full"
     >
-      <Card className="h-full bg-gradient-to-br from-white/90 via-white/95 to-white/90 backdrop-blur-sm text-gray-800 overflow-hidden flex flex-col border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300 group">
+      <Card className="h-full bg-black/40 backdrop-blur-md text-white overflow-hidden flex flex-col border border-white/10 shadow-lg hover:shadow-xl hover:border-white/20 transition-all duration-300 group">
         <div className="relative h-48 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
           <img
             src={imageUrl}
             alt={title}
-            className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-105"
+            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
           />
         </div>
-        <CardHeader>
-          <CardTitle className="text-xl font-semibold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent group-hover:from-gray-900 group-hover:to-gray-700 transition-all duration-300">
+        <CardHeader className="relative z-20 -mt-8">
+          <CardTitle className="text-xl font-semibold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent transition-all duration-300">
             {title}
           </CardTitle>
-          <CardDescription className="text-sm text-gray-500 group-hover:text-gray-600 transition-colors">
+          <CardDescription className="text-sm text-white/60 group-hover:text-white/70 transition-colors">
             {description}
           </CardDescription>
         </CardHeader>
-        <CardContent className="mt-auto">
+        <CardContent className="mt-auto relative z-20">
           <Button
             onClick={onCtaClick}
             variant="ghost"
-            className="w-full relative overflow-hidden text-black bg-white hover:bg-black hover:text-white border border-black/20 transition-all duration-300"
+            className="w-full relative overflow-hidden text-white bg-white/5 hover:bg-white hover:text-black border border-white/20 transition-all duration-300"
           >
             {ctaText}
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -63,37 +63,38 @@ const ServicesGrid = ({
 
   return (
     <section
-      className="w-full py-24 relative scroll-mt-20"
+      className="w-full min-h-screen py-24 relative scroll-mt-20 flex items-center bg-black"
       id="projects"
       aria-labelledby="projects-title"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-black/[0.96] via-black/[0.96] via-50% to-black/80 to-100%"></div>
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926')] opacity-[0.02] mix-blend-overlay"></div>
-      <div className="relative z-10">
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black/90" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-50" />
+
+      <div className="relative z-10 w-full">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-left mb-24 pl-4"
+            className="text-center mb-16"
           >
             <h2
               id="projects-title"
-              className="text-5xl font-bold mb-6 text-white"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80"
               tabIndex={0}
             >
               My Projects
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl font-normal">
+            <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto font-light">
               Explore my portfolio of data analysis and visualization projects
               across different technologies.
             </p>
           </motion.div>
 
-          <div className="relative">
+          <div className="relative px-4 md:px-8">
             <div
               ref={gridRef}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-x-auto pb-4 scrollbar-hide relative"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative"
               role="list"
               aria-label="Projects grid"
             >
@@ -116,33 +117,33 @@ const ServicesGrid = ({
             </div>
 
             {/* Navigation Controls */}
-            <div className="hidden md:flex justify-between items-center absolute -left-12 -right-12 top-1/2 -translate-y-1/2">
+            <div className="hidden md:flex justify-between items-center absolute -left-4 -right-4 top-1/2 -translate-y-1/2">
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => scrollGrid("left")}
-                className="bg-white/80 shadow-lg backdrop-blur-sm hover:bg-white/90 transition-all duration-300 hover:shadow-xl"
+                className="bg-black/50 text-white border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
                 aria-label="Scroll projects left"
               >
-                <ArrowLeft className="h-6 w-6" />
+                <ArrowLeft className="h-5 w-5" />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => scrollGrid("right")}
-                className="bg-white/80 shadow-lg backdrop-blur-sm hover:bg-white/90 transition-all duration-300 hover:shadow-xl"
+                className="bg-black/50 text-white border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
                 aria-label="Scroll projects right"
               >
-                <ArrowRight className="h-6 w-6" />
+                <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
 
             {/* Mobile Scroll Indicator */}
-            <div className="flex md:hidden justify-center mt-4 gap-2">
+            <div className="flex md:hidden justify-center mt-8 gap-2">
               {services.map((_, index) => (
                 <div
                   key={index}
-                  className={`h-1 w-8 rounded-full transition-colors ${index === 0 ? "bg-primary" : "bg-gray-300"}`}
+                  className={`h-1 w-8 rounded-full transition-colors ${index === 0 ? "bg-white/80" : "bg-white/20"}`}
                   role="tab"
                   aria-selected={index === 0}
                   tabIndex={0}
