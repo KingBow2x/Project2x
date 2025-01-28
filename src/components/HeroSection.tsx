@@ -38,7 +38,7 @@ const HeroSection = ({
         <div className="flex flex-col lg:flex-row h-full">
           {/* Left content */}
           <div className="flex-1 p-4 md:p-8 relative z-10 flex flex-col justify-start">
-            <div className="pl-4 md:pl-16 pt-8 md:pt-16">
+            <div className="md:pl-32 md:pt-16 pl-[104px] pt-[16]">
               <h1
                 id="hero-title"
                 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-[1.3] max-w-[800px] pb-4"
@@ -46,14 +46,13 @@ const HeroSection = ({
                 <Card className="bg-zinc-900/90 border border-white/10 backdrop-blur-sm p-6 max-w-[600px]">
                   <Typewriter
                     words={[
-                      "Hello there! 👋",
-                      "Please find Lewis's CV",
-                      "and recent projects below",
-                      "for your perusal :)",
+                      "echo 'Hello there! 👋'",
+                      "cat lewis_cv.md",
+                      "ls ./projects",
+                      "echo 'Thanks for visiting! :)'",
                     ]}
                     speed={30}
                     delay={2000}
-                    className="flex flex-col gap-2"
                   />
                 </Card>
               </h1>
