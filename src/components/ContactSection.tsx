@@ -117,7 +117,7 @@ const ContactSection = ({
 
                 <Button
                   type="submit"
-                  className="w-full relative overflow-hidden text-white bg-blue-600 hover:bg-blue-500 border-0 shadow-lg hover:shadow-blue-500/25 transition-all duration-300 font-semibold"
+                  className="w-full relative overflow-hidden text-white border-0 shadow-lg font-semibold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-500"
                   size="lg"
                 >
                   Send Message

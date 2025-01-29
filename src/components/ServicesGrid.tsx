@@ -33,6 +33,20 @@ const GlowingBackground = () => {
   );
 };
 
+interface ProjectCardProps {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  content: string;
+  tag?: string;
+  tagIcon?: React.ElementType;
+  link?: string;
+  gradient: string;
+  iconColor: string;
+  index: number;
+  inView: boolean;
+}
+
 const ProjectCard = ({
   icon: Icon,
   title,
@@ -40,22 +54,12 @@ const ProjectCard = ({
   content,
   tag,
   tagIcon: TagIcon,
+  link,
   gradient,
   iconColor,
   index,
   inView,
-}: {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-  content: string;
-  tag?: string;
-  tagIcon?: React.ElementType;
-  gradient: string;
-  iconColor: string;
-  index: number;
-  inView: boolean;
-}) => {
+}: ProjectCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -66,6 +70,10 @@ const ProjectCard = ({
       <motion.div
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
+        onClick={() =>
+          link && window.open(link, "_blank", "noopener,noreferrer")
+        }
+        className="cursor-pointer"
       >
         <Card className="group relative overflow-hidden border-neutral-800 bg-black/50 backdrop-blur-sm transition-all hover:border-neutral-700 h-[320px] flex flex-col">
           <div
@@ -92,12 +100,24 @@ const ProjectCard = ({
           </CardHeader>
           <CardContent className="space-y-4 flex-1 flex flex-col justify-between">
             <p className="text-sm text-gray-300 leading-relaxed">{content}</p>
-            {tag && (
-              <div className="flex items-center space-x-2">
-                {TagIcon && <TagIcon className="h-4 w-4 text-green-500" />}
-                <span className="text-xs text-gray-400">{tag}</span>
-              </div>
-            )}
+            <div className="flex items-center justify-between">
+              {tag && (
+                <div className="flex items-center space-x-2">
+                  {TagIcon && <TagIcon className="h-4 w-4 text-green-500" />}
+                  <span className="text-xs text-gray-400">{tag}</span>
+                </div>
+              )}
+              {link && (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  View PDF →
+                </a>
+              )}
+            </div>
           </CardContent>
         </Card>
       </motion.div>
@@ -127,7 +147,8 @@ const ServicesGrid = () => {
       title: "Bitcoin Mining & Renewable Energy",
       description: "Masters Research Project",
       content:
-        "Investigating the synergy between Bitcoin mining operations and renewable energy infrastructure. Analyzing potential benefits for grid stability and sustainable energy adoption.",
+        "Investigating the synergy between Bitcoin mining operations and renewable energy infrastructure. Analyzing potential benefits for grid stability and sustainable energy adoption. View my complete research project in PDF format.",
+      link: "https://drive.google.com/file/d/1_wzJsdqmhCooCtdzfL9oqms4pgfG2pov/view?usp=sharing",
       tag: "Excel Analysis",
       tagIcon: FileSpreadsheet,
       gradient:
