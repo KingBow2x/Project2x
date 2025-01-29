@@ -1,158 +1,182 @@
-import React, { useRef } from "react";
-import ServiceCard from "./ServiceCard";
-import { motion, useInView } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Button } from "./ui/button";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Bitcoin, FileSpreadsheet, Sparkles } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { FloatingParticles } from "./ui/floating-particles";
 
-interface Service {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  ctaText: string;
-}
+const GlowingBackground = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-interface ServicesGridProps {
-  services?: Service[];
-  onProjectSelect?: (projectId: string) => void;
-}
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
 
-const defaultServices: Service[] = [
-  {
-    id: "1",
-    title: "Excel Projects",
-    description:
-      "Advanced data analysis and visualization using Excel, including financial modeling, dashboards, and automation with VBA.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    ctaText: "View Projects",
-  },
-  {
-    id: "2",
-    title: "R Analytics",
-    description:
-      "Statistical analysis, data visualization, and machine learning projects implemented in R with packages like ggplot2 and tidyverse.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    ctaText: "See Analysis",
-  },
-  {
-    id: "3",
-    title: "SQL Database",
-    description:
-      "Database design, complex queries, and data manipulation projects showcasing advanced SQL skills and database optimization.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    ctaText: "Explore DB Work",
-  },
-];
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
-const ServicesGrid = ({
-  services = defaultServices,
-  onProjectSelect = (projectId) => console.log(`Selected project ${projectId}`),
-}: ServicesGridProps) => {
-  const gridRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(gridRef, { once: true });
+  return (
+    <div
+      className="pointer-events-none fixed inset-0 z-30 transition-opacity"
+      style={{
+        background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(29,78,216,0.15), transparent 80%)`,
+      }}
+    />
+  );
+};
 
-  const scrollGrid = (direction: "left" | "right") => {
-    if (gridRef.current) {
-      const scrollAmount = direction === "left" ? -300 : 300;
-      gridRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  };
+const ProjectCard = ({
+  children,
+  index,
+}: {
+  children: React.ReactNode;
+  index: number;
+}) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.8, delay: index * 0.2 }}
+      whileHover={{ scale: 1.02 }}
+      className="relative"
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+const ServicesGrid = () => {
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorPosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   return (
     <section
-      className="w-full min-h-screen py-24 relative scroll-mt-20 flex items-center bg-black"
+      className="relative min-h-screen overflow-hidden bg-black text-white py-24"
       id="projects"
-      aria-labelledby="projects-title"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black/90" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-50" />
+      <GlowingBackground />
+      <FloatingParticles />
 
-      <div className="relative z-10 w-full">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-          >
-            <h2
-              id="projects-title"
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80"
-              tabIndex={0}
-            >
-              My Projects
-            </h2>
-            <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto font-light">
-              Explore my portfolio of data analysis and visualization projects
-              across different technologies.
-            </p>
-          </motion.div>
+      <motion.div
+        className="pointer-events-none fixed z-50 h-4 w-4 rounded-full bg-blue-500/30 mix-blend-screen"
+        animate={{
+          x: cursorPosition.x - 8,
+          y: cursorPosition.y - 8,
+        }}
+        transition={{
+          type: "spring",
+          damping: 10,
+          stiffness: 50,
+          mass: 0.1,
+        }}
+      />
 
-          <div className="relative px-4 md:px-8">
-            <div
-              ref={gridRef}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative"
-              role="list"
-              aria-label="Projects grid"
-            >
-              {services.map((service, index) => (
-                <motion.div
-                  key={service.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <ServiceCard
-                    title={service.title}
-                    description={service.description}
-                    imageUrl={service.imageUrl}
-                    ctaText={service.ctaText}
-                    onCtaClick={() => onProjectSelect(service.id)}
-                  />
-                </motion.div>
-              ))}
-            </div>
+      <main className="container relative mx-auto px-4">
+        <motion.div
+          className="mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="mb-4 text-4xl font-bold tracking-tight">
+            My Projects
+          </h2>
+          <p className="text-lg text-gray-400">
+            Exploring the intersection of technology and sustainability
+          </p>
+        </motion.div>
 
-            {/* Navigation Controls */}
-            <div className="hidden md:flex justify-between items-center absolute -left-4 -right-4 top-1/2 -translate-y-1/2">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => scrollGrid("left")}
-                className="bg-black/50 text-white border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
-                aria-label="Scroll projects left"
-              >
-                <ArrowLeft className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => scrollGrid("right")}
-                className="bg-black/50 text-white border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
-                aria-label="Scroll projects right"
-              >
-                <ArrowRight className="h-5 w-5" />
-              </Button>
-            </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+          <ProjectCard index={0}>
+            <Card className="group relative overflow-hidden border-neutral-800 bg-black/50 backdrop-blur-sm transition-all hover:border-neutral-700">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <CardHeader className="space-y-1">
+                <div className="flex items-center space-x-4">
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                    className="rounded-full border border-neutral-800 bg-neutral-900/50 p-2"
+                  >
+                    <Bitcoin className="h-5 w-5 text-yellow-500" />
+                  </motion.div>
+                  <div className="space-y-1">
+                    <CardTitle className="text-xl">
+                      Bitcoin Mining & Renewable Energy
+                    </CardTitle>
+                    <CardDescription className="text-sm text-gray-400">
+                      Masters Research Project
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-400">
+                  An Excel-based analysis investigating the potential role of
+                  Bitcoin mining in supporting the UK's renewable energy
+                  transition. Coming soon.
+                </p>
+                <div className="mt-4 flex items-center space-x-2">
+                  <FileSpreadsheet className="h-4 w-4 text-green-500" />
+                  <span className="text-xs text-gray-500">Excel Analysis</span>
+                </div>
+              </CardContent>
+            </Card>
+          </ProjectCard>
 
-            {/* Mobile Scroll Indicator */}
-            <div className="flex md:hidden justify-center mt-8 gap-2">
-              {services.map((_, index) => (
-                <div
-                  key={index}
-                  className={`h-1 w-8 rounded-full transition-colors ${index === 0 ? "bg-white/80" : "bg-white/20"}`}
-                  role="tab"
-                  aria-selected={index === 0}
-                  tabIndex={0}
-                />
-              ))}
-            </div>
-          </div>
+          <ProjectCard index={1}>
+            <Card className="group relative overflow-hidden border-neutral-800 bg-black/50 backdrop-blur-sm transition-all hover:border-neutral-700">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-pink-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <CardHeader className="space-y-1">
+                <div className="flex items-center space-x-4">
+                  <motion.div
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.5 }}
+                    className="rounded-full border border-neutral-800 bg-neutral-900/50 p-2"
+                  >
+                    <Sparkles className="h-5 w-5 text-purple-500" />
+                  </motion.div>
+                  <div className="space-y-1">
+                    <CardTitle className="text-xl">Coming Soon</CardTitle>
+                    <CardDescription className="text-sm text-gray-400">
+                      Future Project
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-400">
+                  Another exciting project in development. Stay tuned for
+                  updates.
+                </p>
+                <div className="mt-4 flex items-center space-x-2">
+                  <span className="text-xs text-gray-500">In Development</span>
+                </div>
+              </CardContent>
+            </Card>
+          </ProjectCard>
         </div>
-      </div>
+      </main>
     </section>
   );
 };
