@@ -25,16 +25,12 @@ const Footer = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <motion.h3
-              className="text-3xl font-bold relative inline-block"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+            <h3 className="text-3xl font-bold relative inline-block">
+              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 Lewis Bowmaker
               </span>
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg opacity-20 blur-lg group-hover:opacity-30 animate-pulse transition duration-1000"></div>
-            </motion.h3>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg opacity-10 blur-lg"></div>
+            </h3>
             <p className="text-zinc-300 text-lg">
               Graduate Chemical Engineer with expertise in data analytics | AI
               and crypto enthusiast
