@@ -65,42 +65,46 @@ const ProjectCard = ({
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.8, delay: index * 0.2 }}
-      whileHover={{ scale: 1.02 }}
-      className="relative"
+      className="relative will-change-transform"
     >
-      <Card className="group relative overflow-hidden border-neutral-800 bg-black/50 backdrop-blur-sm transition-all hover:border-neutral-700 h-full">
-        <div
-          className={`absolute inset-0 ${gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
-        />
-        <CardHeader className="space-y-1">
-          <div className="flex items-center space-x-4">
-            <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-              className="rounded-full border border-neutral-800 bg-neutral-900/50 p-3"
-            >
-              <Icon className={`h-6 w-6 ${iconColor}`} />
-            </motion.div>
-            <div className="space-y-1 flex-1">
-              <CardTitle className="text-xl font-bold text-white">
-                {title}
-              </CardTitle>
-              <CardDescription className="text-sm text-gray-400">
-                {description}
-              </CardDescription>
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
+      >
+        <Card className="group relative overflow-hidden border-neutral-800 bg-black/50 backdrop-blur-sm transition-all hover:border-neutral-700 h-[320px] flex flex-col">
+          <div
+            className={`absolute inset-0 ${gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+          />
+          <CardHeader className="space-y-1">
+            <div className="flex items-center space-x-4">
+              <motion.div
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+                className="rounded-full border border-neutral-800 bg-neutral-900/50 p-3"
+              >
+                <Icon className={`h-6 w-6 ${iconColor}`} />
+              </motion.div>
+              <div className="space-y-1 flex-1">
+                <CardTitle className="text-xl font-bold text-white">
+                  {title}
+                </CardTitle>
+                <CardDescription className="text-sm text-gray-400">
+                  {description}
+                </CardDescription>
+              </div>
             </div>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <p className="text-sm text-gray-300 leading-relaxed">{content}</p>
-          {tag && (
-            <div className="flex items-center space-x-2 pt-2">
-              {TagIcon && <TagIcon className="h-4 w-4 text-green-500" />}
-              <span className="text-xs text-gray-400">{tag}</span>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+          </CardHeader>
+          <CardContent className="space-y-4 flex-1 flex flex-col justify-between">
+            <p className="text-sm text-gray-300 leading-relaxed">{content}</p>
+            {tag && (
+              <div className="flex items-center space-x-2">
+                {TagIcon && <TagIcon className="h-4 w-4 text-green-500" />}
+                <span className="text-xs text-gray-400">{tag}</span>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </motion.div>
     </motion.div>
   );
 };
@@ -122,7 +126,7 @@ const ServicesGrid = () => {
       title: "Bitcoin Mining & Renewable Energy",
       description: "Masters Research Project",
       content:
-        "An Excel-based analysis investigating the potential role of Bitcoin mining in supporting the UK's renewable energy transition.",
+        "Investigating the synergy between Bitcoin mining operations and renewable energy infrastructure. Analyzing potential benefits for grid stability and sustainable energy adoption.",
       tag: "Excel Analysis",
       tagIcon: FileSpreadsheet,
       gradient:
@@ -134,7 +138,7 @@ const ServicesGrid = () => {
       title: "Machine Learning in R",
       description: "Data Science Project",
       content:
-        "Statistical analysis and predictive modeling using R, focusing on environmental data and renewable energy patterns.",
+        "Leveraging statistical computing and machine learning techniques in R to analyze environmental data patterns. Developing predictive models for renewable energy optimization.",
       tag: "R & Statistical Analysis",
       tagIcon: Zap,
       gradient:
@@ -146,7 +150,7 @@ const ServicesGrid = () => {
       title: "Algorithmic Trading",
       description: "Coming Soon",
       content:
-        "Developing automated trading strategies for cryptocurrency markets with a focus on sustainable energy consumption patterns.",
+        "Building automated trading systems for cryptocurrency markets with a focus on energy-efficient protocols. Integrating market analysis with sustainable energy consumption metrics.",
       tag: "In Development",
       tagIcon: Code,
       gradient:
@@ -157,12 +161,11 @@ const ServicesGrid = () => {
 
   return (
     <section
-      className="relative min-h-screen overflow-hidden bg-black text-white py-24"
+      className="relative overflow-hidden bg-black text-white py-24 mt-8"
       id="projects"
     >
       <GlowingBackground />
       <FloatingParticles />
-
       <motion.div
         className="pointer-events-none fixed z-50 h-4 w-4 rounded-full bg-blue-500/30 mix-blend-screen"
         animate={{
@@ -176,7 +179,6 @@ const ServicesGrid = () => {
           mass: 0.1,
         }}
       />
-
       <main className="container relative mx-auto px-4 max-w-7xl">
         <motion.div
           className="mb-16 text-center max-w-3xl mx-auto"
@@ -184,12 +186,9 @@ const ServicesGrid = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="mb-4 text-5xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+          <h2 className="mb-4 text-5xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent pb-2">
             My Projects
           </h2>
-          <p className="text-xl text-gray-400 leading-relaxed">
-            Exploring the intersection of technology and sustainability
-          </p>
         </motion.div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
