@@ -4,6 +4,7 @@ import HeroSection from "./HeroSection";
 import ServicesGrid from "./ServicesGrid";
 import ContactSection from "./ContactSection";
 import Footer from "./Footer";
+import WaveDivider from "./WaveDivider";
 
 const Home = () => {
   return (
@@ -19,7 +20,9 @@ const Home = () => {
           <ServicesGrid />
         </div>
 
-        <div id="contact">
+        <WaveDivider />
+
+        <div id="contact" className="-mt-24">
           <ContactSection />
         </div>
       </main>
