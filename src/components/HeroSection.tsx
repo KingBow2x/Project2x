@@ -40,7 +40,7 @@ const HeroSection = ({
         <div className="flex flex-col lg:flex-row h-full px-4 lg:px-0">
           {/* Left content */}
           <div className="flex-1 p-4 md:p-8 relative z-20 flex justify-center lg:justify-start">
-            <div className="md:pl-32 md:pt-48 lg:pl-[104px] pt-[96px] w-full max-w-[800px]">
+            <div className="md:pl-32 md:pt-48 lg:pl-[104px] pt-[160px] w-full max-w-[800px]">
               <h1
                 id="hero-title"
                 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-[1.3] max-w-[800px] pb-4"
@@ -82,7 +82,7 @@ const HeroSection = ({
           onClick={() =>
             window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
           }
-          className="absolute left-1/2 bottom-8 transform -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-white transition-colors"
+          className="absolute left-1/2 bottom-8 transform -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-muted-foreground hover:text-white transition-colors"
         >
           <span className="text-sm">Scroll</span>
           <motion.div
