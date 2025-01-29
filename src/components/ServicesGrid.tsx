@@ -184,7 +184,7 @@ const ServicesGrid = () => {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-gradient-to-b from-black via-zinc-900/95 to-black text-white py-24 min-h-screen"
+      className="relative overflow-hidden bg-gradient-to-b from-black via-zinc-900/95 to-black text-white py-16 min-h-[800px]"
       id="projects"
     >
       <GlowingBackground />
