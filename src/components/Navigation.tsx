@@ -40,7 +40,7 @@ const Navigation = ({
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-4 right-4 sm:right-8 lg:right-12 z-50 ${isScrolled ? "shadow-md shadow-gray-800/50" : ""}`}
+      className={`fixed top-4 right-4 sm:right-8 lg:right-12 z-50`}
     >
       {/* Desktop Navigation */}
       <div className="hidden sm:block">
@@ -59,17 +59,22 @@ const Navigation = ({
 
       {/* Mobile Navigation */}
       <div className="sm:hidden">
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {!isExpanded ? (
             <motion.div
               key="collapsed"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              exit={{ opacity: 0, scale: 0.8, rotate: 10 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+              }}
+              className={`${isScrolled ? "shadow-lg shadow-black/20 backdrop-blur-md" : ""}`}
             >
               <DockIcon
-                className="bg-white/10 hover:bg-white/20 p-2"
+                className="bg-white/10 hover:bg-white/20 p-2 transition-colors duration-200"
                 onClick={toggleExpand}
               >
                 <Home className="h-4 w-4 text-white" />
@@ -78,27 +83,71 @@ const Navigation = ({
           ) : (
             <motion.div
               key="expanded"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, x: 20, width: 40 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                width: "auto",
+                transition: {
+                  width: { duration: 0.2 },
+                  opacity: { duration: 0.2 },
+                },
+              }}
+              exit={{
+                opacity: 0,
+                x: 20,
+                width: 40,
+                transition: {
+                  width: { duration: 0.2 },
+                  opacity: { duration: 0.1 },
+                },
+              }}
+              className={`overflow-hidden ${isScrolled ? "shadow-lg shadow-black/20 backdrop-blur-md" : ""}`}
             >
-              <Dock className="scale-75 origin-right">
-                {links.map((link) => (
-                  <DockIcon
+              <Dock className="origin-right">
+                {links.map((link, index) => (
+                  <motion.div
                     key={link.href}
-                    className="bg-white/10 hover:bg-white/20 p-2"
-                    onClick={() => scrollToSection(link.href)}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                      transition: { delay: index * 0.05 },
+                    }}
+                    exit={{
+                      opacity: 0,
+                      x: -20,
+                      transition: { delay: (links.length - index) * 0.05 },
+                    }}
                   >
-                    <link.icon className="h-4 w-4 text-white" />
-                  </DockIcon>
+                    <DockIcon
+                      className="bg-white/10 hover:bg-white/20 p-2 transition-colors duration-200"
+                      onClick={() => scrollToSection(link.href)}
+                    >
+                      <link.icon className="h-4 w-4 text-white" />
+                    </DockIcon>
+                  </motion.div>
                 ))}
-                <DockIcon
-                  className="bg-white/10 hover:bg-white/20 p-2"
-                  onClick={toggleExpand}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    transition: { delay: links.length * 0.05 },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    x: -20,
+                    transition: { delay: 0 },
+                  }}
                 >
-                  <X className="h-4 w-4 text-white" />
-                </DockIcon>
+                  <DockIcon
+                    className="bg-white/10 hover:bg-white/20 p-2 transition-colors duration-200"
+                    onClick={toggleExpand}
+                  >
+                    <X className="h-4 w-4 text-white" />
+                  </DockIcon>
+                </motion.div>
               </Dock>
             </motion.div>
           )}
