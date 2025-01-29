@@ -22,7 +22,7 @@ const Footer = ({
       <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900/95 to-black"></div>
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926')] opacity-[0.08] mix-blend-overlay"></div>
       <div className="container mx-auto px-4 py-12 relative z-10">
-        <div className="flex justify-between items-start gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           {/* Brand Section */}
           <div className="max-w-xl space-y-4">
             <h3 className="text-3xl font-bold relative inline-block">
@@ -38,7 +38,7 @@ const Footer = ({
           </div>
 
           {/* Social Links */}
-          <div className="space-y-4 text-right">
+          <div className="space-y-4 text-left md:text-right mt-6 md:mt-0">
             <h4 className="text-lg font-semibold bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
               Connect With Me
             </h4>

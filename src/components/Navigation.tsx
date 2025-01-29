@@ -34,7 +34,7 @@ const Navigation = ({
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-4 right-12 z-50 ${isScrolled ? "shadow-md shadow-gray-800/50" : ""}`}
+      className={`fixed top-4 right-4 sm:right-8 lg:right-12 z-50 ${isScrolled ? "shadow-md shadow-gray-800/50" : ""}`}
     >
       <Dock>
         {links.map((link) => (

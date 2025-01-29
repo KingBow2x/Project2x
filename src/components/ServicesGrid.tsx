@@ -202,7 +202,7 @@ const ServicesGrid = () => {
           mass: 0.1,
         }}
       />
-      <main className="container relative mx-auto px-4 max-w-7xl">
+      <main className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -214,7 +214,7 @@ const ServicesGrid = () => {
           </h2>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.title}

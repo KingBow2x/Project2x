@@ -37,32 +37,37 @@ const HeroSection = ({
           fill="white"
         />
 
-        <div className="flex flex-col lg:flex-row h-full">
+        <div className="flex flex-col lg:flex-row h-full px-4 lg:px-0">
           {/* Left content */}
-          <div className="flex-1 p-4 md:p-8 relative z-20 flex flex-col justify-start">
-            <div className="md:pl-32 md:pt-32 pl-[104px] pt-[32px]">
+          <div className="flex-1 p-4 md:p-8 relative z-20 flex justify-center lg:justify-start">
+            <div className="md:pl-32 md:pt-48 lg:pl-[104px] pt-[96px] w-full max-w-[800px]">
               <h1
                 id="hero-title"
                 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-[1.3] max-w-[800px] pb-4"
               >
-                <Card className="bg-zinc-900/90 border border-white/10 backdrop-blur-sm p-8 max-w-[800px] shadow-[0_0_50px_rgba(255,255,255,0.2)]">
-                  <Typewriter
-                    words={[
-                      "echo 'Hello there! 👋'",
-                      "cat lewis_cv.md",
-                      "ls ./projects",
-                      "echo 'Thanks for visiting! :)'",
-                    ]}
-                    speed={30}
-                    delay={2000}
-                  />
+                <Card className="bg-zinc-900/90 border border-white/10 backdrop-blur-sm p-4 lg:p-8 h-[160px] lg:h-auto max-w-[800px] shadow-[0_0_50px_rgba(255,255,255,0.2)]">
+                  <div className="w-full h-full flex items-center overflow-hidden">
+                    <div className="w-full">
+                      <Typewriter
+                        words={[
+                          "echo 'Hello there! 👋'",
+                          "cat lewis_cv.md",
+                          "ls ./projects",
+                          "echo 'Thanks for visiting! :)'",
+                        ]}
+                        speed={30}
+                        delay={2000}
+                        className="text-[0.7rem] lg:text-base whitespace-nowrap"
+                      />
+                    </div>
+                  </div>
                 </Card>
               </h1>
             </div>
           </div>
 
           {/* Right content */}
-          <div className="flex-1 relative hidden lg:block">
+          <div className="flex-1 relative min-h-[300px] lg:min-h-0 flex items-center justify-center lg:block">
             <SplineScene
               scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
               className="w-full h-full"
