@@ -43,6 +43,7 @@ const ProjectCard = ({
   gradient,
   iconColor,
   index,
+  inView,
 }: {
   icon: React.ElementType;
   title: string;
@@ -53,18 +54,13 @@ const ProjectCard = ({
   gradient: string;
   iconColor: string;
   index: number;
+  inView: boolean;
 }) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.8, delay: index * 0.2 }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.5, delay: index * 0.2 }}
       className="relative will-change-transform"
     >
       <motion.div
@@ -111,6 +107,11 @@ const ProjectCard = ({
 
 const ServicesGrid = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+    rootMargin: "-100px",
+  });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -161,7 +162,8 @@ const ServicesGrid = () => {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-black via-zinc-900/95 to-black text-white py-24"
+      ref={ref}
+      className="relative overflow-hidden bg-gradient-to-b from-black via-zinc-900/95 to-black text-white py-24 min-h-screen"
       id="projects"
     >
       <GlowingBackground />
@@ -181,11 +183,10 @@ const ServicesGrid = () => {
       />
       <main className="container relative mx-auto px-4 max-w-7xl">
         <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.5 }}
           className="mb-16 text-center max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
         >
           <h2 className="mb-4 text-5xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent pb-2">
             My Projects
@@ -194,7 +195,12 @@ const ServicesGrid = () => {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <ProjectCard key={project.title} {...project} index={index} />
+            <ProjectCard
+              key={project.title}
+              {...project}
+              index={index}
+              inView={inView}
+            />
           ))}
         </div>
       </main>
