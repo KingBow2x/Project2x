@@ -19,7 +19,7 @@ const Footer = ({
 }: FooterProps) => {
   return (
     <footer className="relative bg-black text-white">
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-black"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900/95 to-black"></div>
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926')] opacity-[0.08] mix-blend-overlay"></div>
       <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="flex justify-between items-start gap-8">

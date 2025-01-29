@@ -142,6 +142,9 @@
   * {
     @apply border-border;
   }
+  html {
+    @apply scroll-smooth;
+  }
   body {
     @apply bg-black text-foreground m-0 p-0 min-h-screen;
   }

@@ -161,7 +161,7 @@ const ServicesGrid = () => {
 
   return (
     <section
-      className="relative overflow-hidden bg-black text-white py-24 mt-8"
+      className="relative overflow-hidden bg-gradient-to-b from-black via-zinc-900/95 to-black text-white py-24"
       id="projects"
     >
       <GlowingBackground />
@@ -183,7 +183,8 @@ const ServicesGrid = () => {
         <motion.div
           className="mb-16 text-center max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <h2 className="mb-4 text-5xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent pb-2">

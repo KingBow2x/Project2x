@@ -32,7 +32,7 @@ const ContactSection = ({
 
   return (
     <section className="w-full py-16 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-black"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900/95 to-black"></div>
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926')] opacity-[0.08] mix-blend-overlay"></div>
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         <motion.div
