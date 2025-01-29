@@ -44,7 +44,7 @@ export function Typewriter({
   return (
     <div
       className={cn(
-        "font-mono text-sm bg-black/80 p-4 rounded-lg border border-white/10",
+        "font-mono text-lg md:text-xl lg:text-2xl bg-black/80 p-4 rounded-lg border border-white/10",
         "min-h-[200px] w-full",
         className,
       )}
@@ -60,7 +60,7 @@ export function Typewriter({
       <div className="flex items-center gap-2">
         <span className="text-green-400">$</span>
         <span className="text-white">{currentText}</span>
-        <span className="w-2 h-4 bg-white/70 animate-cursor-blink" />
+        <span className="w-2.5 h-5 bg-white/70 animate-cursor-blink" />
       </div>
     </div>
   );

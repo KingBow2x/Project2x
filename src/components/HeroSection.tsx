@@ -1,4 +1,5 @@
 import React from "react";
+import Particles from "./ui/particles";
 import { ButtonWithRipple as Button } from "./ui/button-with-ripple";
 import { motion } from "framer-motion";
 import { SplineScene } from "./ui/splite";
@@ -29,7 +30,8 @@ const HeroSection = ({
       className="relative min-h-[650px] h-[85vh] max-h-[850px] w-full overflow-hidden bg-black"
       aria-labelledby="hero-title"
     >
-      <Card className="w-full h-full bg-black/[0.96] overflow-hidden rounded-none">
+      <Particles className="absolute inset-0 z-0" quantity={100} ease={20} />
+      <Card className="w-full h-full bg-transparent overflow-hidden rounded-none">
         <Spotlight
           className="-top-40 left-0 md:left-60 md:-top-20"
           fill="white"
@@ -37,13 +39,13 @@ const HeroSection = ({
 
         <div className="flex flex-col lg:flex-row h-full">
           {/* Left content */}
-          <div className="flex-1 p-4 md:p-8 relative z-10 flex flex-col justify-start">
+          <div className="flex-1 p-4 md:p-8 relative z-20 flex flex-col justify-start">
             <div className="md:pl-32 md:pt-16 pl-[104px] pt-[16]">
               <h1
                 id="hero-title"
                 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-[1.3] max-w-[800px] pb-4"
               >
-                <Card className="bg-zinc-900/90 border border-white/10 backdrop-blur-sm p-6 max-w-[600px]">
+                <Card className="bg-zinc-900/90 border border-white/10 backdrop-blur-sm p-8 max-w-[800px]">
                   <Typewriter
                     words={[
                       "echo 'Hello there! 👋'",
