@@ -31,7 +31,7 @@ const HeroSection = ({
       aria-labelledby="hero-title"
     >
       <Particles className="absolute inset-0 z-0" quantity={100} ease={20} />
-      <Card className="w-full h-full bg-transparent overflow-hidden rounded-none">
+      <Card className="w-full h-full bg-transparent overflow-hidden rounded-none border-0">
         <Spotlight
           className="-top-40 left-0 md:left-60 md:-top-20"
           fill="white"
