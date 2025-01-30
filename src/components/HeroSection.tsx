@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Particles from "./ui/particles";
 import { ButtonWithRipple as Button } from "./ui/button-with-ripple";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { SplineScene } from "./ui/splite";
 import { Card } from "./ui/card";
 import { Typewriter } from "./ui/typewriter";
-import { Dock } from "./ui/dock";
-import { DockIcon } from "./ui/dock";
-import { Home, User, Mail, Bell, Settings, ArrowDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { Spotlight } from "./ui/spotlight";
 
 interface HeroSectionProps {
@@ -18,8 +16,6 @@ interface HeroSectionProps {
   onCtaClick?: () => void;
 }
 
-import LoadingScreen from "./LoadingScreen";
-
 const HeroSection = ({
   title = "Transform Your Digital Presence",
   subtitle = "We help businesses create impactful digital experiences that drive growth and engagement.",
@@ -27,29 +23,11 @@ const HeroSection = ({
   logoUrl = "https://api.dicebear.com/7.x/shapes/svg?seed=brand",
   onCtaClick = () => console.log("CTA clicked"),
 }: HeroSectionProps) => {
-  const [loading, setLoading] = useState(true);
   return (
     <div className="relative">
-      <AnimatePresence mode="wait">
-        {loading && (
-          <motion.div
-            key="loading"
-            className="fixed inset-0 z-50"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <LoadingScreen onComplete={() => setLoading(false)} />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <motion.section
-        initial={false}
-        animate={{
-          opacity: loading ? 0 : 1,
-          y: loading ? 20 : 0,
-        }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative min-h-[650px] h-[85vh] max-h-[850px] w-full overflow-hidden bg-black"
         aria-labelledby="hero-title"
