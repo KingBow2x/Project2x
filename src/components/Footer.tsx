@@ -12,7 +12,7 @@ interface FooterProps {
 
 const Footer = ({
   socialLinks = {
-    github: "https://github.com/yourusername",
+    github: "https://github.com/KingBow2x",
     linkedin: "https://linkedin.com/in/lewis-bowmaker",
     youtube: "https://youtube.com/@yourusername",
   },
