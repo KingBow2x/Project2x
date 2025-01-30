@@ -33,7 +33,7 @@ const HeroSection = ({
       <Particles className="absolute inset-0 z-0" quantity={100} ease={20} />
       <Card className="w-full h-full bg-transparent overflow-hidden rounded-none border-0">
         <Spotlight
-          className="-top-40 left-0 md:left-60 md:-top-20"
+          className="hidden md:block -top-40 left-0 md:left-60 md:-top-20"
           fill="white"
         />
 
@@ -57,7 +57,7 @@ const HeroSection = ({
                         ]}
                         speed={30}
                         delay={2000}
-                        className="text-[0.7rem] lg:text-base whitespace-nowrap"
+                        className="text-sm lg:text-xl whitespace-nowrap"
                       />
                     </div>
                   </div>
