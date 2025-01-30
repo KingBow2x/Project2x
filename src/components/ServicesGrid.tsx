@@ -181,7 +181,7 @@ const ServicesGrid = () => {
     >
       <GlowingBackground />
       <FloatingParticles />
-      <main className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <main className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pt-8 sm:pt-12">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
