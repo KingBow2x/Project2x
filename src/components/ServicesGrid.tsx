@@ -126,20 +126,11 @@ const ProjectCard = ({
 };
 
 const ServicesGrid = () => {
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
     rootMargin: "-100px",
   });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   const projects = [
     {
@@ -147,7 +138,7 @@ const ServicesGrid = () => {
       title: "Bitcoin Mining & Renewable Energy",
       description: "Masters Research Project",
       content:
-        "Investigating the synergy between Bitcoin mining operations and renewable energy infrastructure. Analyzing potential benefits for grid stability and sustainable energy adoption. View my complete research project in PDF format.",
+        "Investigating if bitcoin mining can be leveraged to assist the renewable energy transition in the UK by utilising currently curtailed wind energy. View my complete research project in PDF format.",
       link: "https://drive.google.com/file/d/1_wzJsdqmhCooCtdzfL9oqms4pgfG2pov/view?usp=sharing",
       tag: "Excel Analysis",
       tagIcon: FileSpreadsheet,
@@ -189,19 +180,6 @@ const ServicesGrid = () => {
     >
       <GlowingBackground />
       <FloatingParticles />
-      <motion.div
-        className="pointer-events-none fixed z-50 h-4 w-4 rounded-full bg-blue-500/30 mix-blend-screen"
-        animate={{
-          x: cursorPosition.x - 8,
-          y: cursorPosition.y - 8,
-        }}
-        transition={{
-          type: "spring",
-          damping: 10,
-          stiffness: 50,
-          mass: 0.1,
-        }}
-      />
       <main className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
