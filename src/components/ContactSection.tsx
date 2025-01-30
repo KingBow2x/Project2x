@@ -51,7 +51,6 @@ const ContactSection = ({
               <CardTitle className="text-4xl font-bold mb-3 bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
                 {title}
               </CardTitle>
-              <p className="text-zinc-300 text-lg">{subtitle}</p>
             </CardHeader>
             <CardContent>
               <form
