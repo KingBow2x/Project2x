@@ -148,15 +148,16 @@ const ServicesGrid = () => {
     },
     {
       icon: Code,
-      title: "Machine Learning in R",
-      description: "Data Science Project",
+      title: "Bank Churn Analysis in R",
+      description: "Decision Tree Analysis",
       content:
-        "Leveraging statistical computing and machine learning techniques in R to analyze environmental data patterns. Developing predictive models for renewable energy optimization.",
+        "Implemented decision tree analysis to predict customer churn in banking, featuring comprehensive data preprocessing, k-fold cross-validation, and detailed performance metrics including accuracy, precision, and recall.",
       tag: "R & Statistical Analysis",
       tagIcon: Zap,
       gradient:
         "bg-gradient-to-r from-purple-500/10 via-transparent to-pink-500/10",
       iconColor: "text-purple-500",
+      link: "https://github.com/KingBow2x/BANK-CHURN-DECISION-TREE-ANALYSIS",
     },
     {
       icon: Sparkles,
