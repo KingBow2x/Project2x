@@ -163,7 +163,7 @@ const ServicesGrid = () => {
       title: "Algorithmic Trading",
       description: "Coming Soon",
       content:
-        "Building automated trading systems for cryptocurrency markets with a focus on energy-efficient protocols. Integrating market analysis with sustainable energy consumption metrics.",
+        "Learning to implement automated trading systems for cryptocurrency markets.",
       tag: "In Development",
       tagIcon: Code,
       gradient:
