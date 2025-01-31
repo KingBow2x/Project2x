@@ -23,16 +23,13 @@ export const Typewriter: React.FC<TypewriterProps> = ({
   const [currentLine, setCurrentLine] = useState("");
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(
       () => {
         if (currentWordIndex >= words.length) {
-          // Reset for loop
-          setCompletedLines([]);
-          setCurrentLine("");
-          setCurrentWordIndex(0);
-          setCurrentCharIndex(0);
+          setIsComplete(true);
           return;
         }
 
@@ -52,7 +49,7 @@ export const Typewriter: React.FC<TypewriterProps> = ({
     );
 
     return () => clearTimeout(timer);
-  }, [currentCharIndex, currentWordIndex, words, speed, delay]);
+  }, [currentCharIndex, currentWordIndex, words, speed, delay, isComplete]);
 
   return (
     <div className={className}>
@@ -62,7 +59,7 @@ export const Typewriter: React.FC<TypewriterProps> = ({
           <span className="text-white ml-2">{line}</span>
         </div>
       ))}
-      {currentWordIndex < words.length && (
+      {!isComplete && currentWordIndex < words.length && (
         <div className="flex">
           <span className="text-green-400">$</span>
           <span className="text-white ml-2">{currentLine}</span>

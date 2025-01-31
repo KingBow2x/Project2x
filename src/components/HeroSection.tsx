@@ -67,7 +67,9 @@ const HeroSection = ({
                             "echo 'Thanks for visiting! :)'",
                           ]}
                           speed={20}
-                          delay={1000}
+                          delay={500}
+                          loop={false}
+                          repeat={1}
                           className="text-sm lg:text-xl flex flex-col space-y-2 font-mono"
                           cursor={true}
                           cursorStyle="▋"
