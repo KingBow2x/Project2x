@@ -61,12 +61,13 @@ const HeroSection = ({
                         <Typewriter
                           words={[
                             "echo 'Hello there! 👋'",
-                            "ls ./projects",
-                            "echo 'See projects below ⬇️'",
+                            "cd ./projects && git config user.name",
+                            "@LewisBowmaker",
+                            "echo 'See my work below ⬇️'",
                             "echo 'Thanks for visiting! :)'",
                           ]}
-                          speed={50}
-                          delay={2000}
+                          speed={20}
+                          delay={1000}
                           className="text-sm lg:text-xl flex flex-col space-y-2 font-mono"
                           cursor={true}
                           cursorStyle="▋"
