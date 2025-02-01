@@ -47,7 +47,7 @@ const HeroSection = ({
                   id="hero-title"
                   className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-[1.3] max-w-[800px] pb-4"
                 >
-                  <Card className="bg-zinc-900/90 border border-white/10 backdrop-blur-sm p-0 lg:p-0 h-[200px] lg:h-auto max-w-[800px] shadow-[0_0_50px_rgba(255,255,255,0.2)] overflow-hidden">
+                  <Card className="bg-zinc-900/90 border border-white/10 backdrop-blur-sm p-0 lg:p-0 h-[240px] lg:h-auto max-w-[800px] shadow-[0_0_50px_rgba(255,255,255,0.2)] overflow-hidden">
                     <div className="w-full bg-[#2D2D2D] px-4 py-2 flex items-center gap-2">
                       <div className="flex gap-2">
                         <div className="w-3 h-3 rounded-full bg-[#FF605C]"></div>
@@ -56,7 +56,7 @@ const HeroSection = ({
                       </div>
                       <span className="text-white/50 text-sm">terminal</span>
                     </div>
-                    <div className="w-full h-full flex items-start overflow-hidden p-4 lg:p-8">
+                    <div className="w-full h-full flex items-start overflow-hidden p-2 lg:p-8">
                       <div className="w-full">
                         <Typewriter
                           words={[
@@ -70,7 +70,7 @@ const HeroSection = ({
                           delay={500}
                           loop={false}
                           repeat={1}
-                          className="text-sm lg:text-xl flex flex-col space-y-2 font-mono"
+                          className="text-xs lg:text-xl flex flex-col space-y-2 font-mono"
                           cursor={true}
                           cursorStyle="▋"
                           keepText={true}
