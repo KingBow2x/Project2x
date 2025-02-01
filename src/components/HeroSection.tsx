@@ -29,7 +29,7 @@ const HeroSection = ({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative min-h-[650px] h-[85vh] max-h-[850px] w-full overflow-hidden bg-black"
+        className="relative min-h-[800px] h-[90vh] max-h-[1000px] w-full overflow-hidden bg-black"
         aria-labelledby="hero-title"
       >
         <Particles className="absolute inset-0 z-0" quantity={100} ease={20} />
@@ -42,7 +42,7 @@ const HeroSection = ({
           <div className="flex flex-col lg:flex-row h-full px-4 lg:px-0">
             {/* Left content */}
             <div className="flex-1 p-4 md:p-8 relative z-20 flex justify-center lg:justify-start">
-              <div className="md:pl-32 md:pt-48 lg:pl-[104px] pt-[160px] w-full max-w-[800px]">
+              <div className="md:pl-32 md:pt-32 lg:pl-[104px] pt-[120px] w-full max-w-[800px]">
                 <h1
                   id="hero-title"
                   className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-[1.3] max-w-[800px] pb-4"
@@ -83,7 +83,7 @@ const HeroSection = ({
             </div>
 
             {/* Right content */}
-            <div className="flex-1 relative min-h-[300px] lg:min-h-0 flex items-center justify-center lg:block">
+            <div className="flex-1 relative min-h-[450px] lg:min-h-0 flex items-center justify-center lg:block mt-4 lg:mt-0">
               <SplineScene
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                 className="w-full h-full"
