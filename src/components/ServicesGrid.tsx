@@ -160,13 +160,14 @@ const ServicesGrid = () => {
       link: "https://github.com/KingBow2x/BANK-CHURN-DECISION-TREE-ANALYSIS",
     },
     {
-      icon: Sparkles,
-      title: "Algorithmic Trading",
-      description: "Coming Soon",
+      icon: Code,
+      title: "Web Development with AI",
+      description: "Padel & Tennis Courts Directory",
       content:
-        "Learning to implement automated trading systems for cryptocurrency markets.",
-      tag: "In Development",
-      tagIcon: Code,
+        "Built a directory website showcasing all padel and tennis courts in the UK. Project involved data scraping, data cleaning, and implementing a directory using Advanced Custom Fields, custom post types, and query loops.",
+      link: "https://padeltennisnearme.co.uk/",
+      tag: "WordPress & ACF",
+      tagIcon: Sparkles,
       gradient:
         "bg-gradient-to-r from-emerald-500/10 via-transparent to-blue-500/10",
       iconColor: "text-emerald-500",
